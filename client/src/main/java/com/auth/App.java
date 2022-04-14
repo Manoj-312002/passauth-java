@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class App {
     private static byte [] xor1;
-    private static int width = 500 , height = 20;
+    private static int width = 400 , height = 20;
     
     public static void convertText( String text ) throws Exception{
         System.out.println(text);
