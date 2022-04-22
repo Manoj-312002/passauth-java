@@ -6,6 +6,7 @@ public class App {
     private static byte [] xor1;
 
     public static void main( String[] args ) throws Exception {
+        
         /*
             s - seed
             Pc - password client 
@@ -35,7 +36,7 @@ public class App {
         StringBuilder sb1 = new StringBuilder(); for (byte b : xor1 )  sb1.append(String.format("%02x", b));
         System.out.println(sb1.toString());
 
-        
+        // generating string from xor1
         String xor1S = new String( xor1 , "ascii" );
         System.out.println( Arrays.toString( xor1 ) );
         System.out.println( xor1S );
@@ -45,6 +46,10 @@ public class App {
         
         tS.convertText( xor1S );
         tS.reconvert();
+
+        // generating random image
+        randImage ri = new randImage();
+        ri.genImage();
 
     }
 }
