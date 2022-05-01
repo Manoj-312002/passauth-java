@@ -31,6 +31,7 @@ public class embedShuffle {
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
         // System.out.println( shuffled_img.length , bf.length );
 
+        // for printing the example
         for( int i = 0; i < m; i++ ) bf[i] = shuffled_img[i];
         ImageIO.write(img, "png", new File("Text5.png"));
         return shuffled_img;

@@ -17,10 +17,12 @@ public class receiveServer {
         din = new DataInputStream( sc.getInputStream() );
     }
 
+    // to read seed values
     Integer getInt() throws Exception{
         return din.readInt();
     }
-    
+
+    // get the shuffled image
     byte[] receiveImage() throws Exception{
         // System.out.println( new BigInteger(sh_len).intValue() );
         Integer shuffled_img_ln = din.readInt();
