@@ -14,11 +14,10 @@ public class App {
             Pc - password client 
             CText - clear text sent from server
             xor1 - xor of CText and h( pc , s ) - T in architecture
+            xor1S - string representation of xor1
             xor1_img - byte array of xor1
             rnd_img - random image generated
-
             unshuffled_img - combination of xor1_img and rnd_img - t' in architecture
-
         */
         
         Random rd = new Random(); 
@@ -83,7 +82,8 @@ public class App {
         }
 
         embedShuffle eS = new embedShuffle();
-        eS.shuffle( hashed_password2 , unshuffled_img );
+        byte[] shuffled_img = eS.shuffle( hashed_password2 , unshuffled_img );
 
+        
     }
 }
