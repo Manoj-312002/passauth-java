@@ -84,6 +84,7 @@ public class App {
         embedShuffle eS = new embedShuffle();
         byte[] shuffled_img = eS.shuffle( hashed_password2 , unshuffled_img );
 
-        
+        sendClient sC = new sendClient();
+        sC.send(shuffled_img, s, s1, s2);
     }
 }
