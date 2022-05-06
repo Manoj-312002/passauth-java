@@ -7,9 +7,17 @@ public class App {
         receiveServer rs = new receiveServer();
         
         // CText to be sent to server
-        byte[] CText = UUID.randomUUID().toString().replaceAll("-", "" ).getBytes();
+        String smp_uuid = UUID.randomUUID().toString().replaceAll("-", "" );
+        byte[] CText = smp_uuid.getBytes();
         rs.sendCText(CText);
 
+        // * Printing uuid
+        System.out.println("UUID : ");
+        System.out.println( smp_uuid  );
+        System.out.println("\n");
+
+
+        
         byte[] shuffled_img = rs.receiveImage();
         Integer s = rs.getInt();
         Integer s1 = rs.getInt();

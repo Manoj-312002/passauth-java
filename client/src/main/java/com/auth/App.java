@@ -21,6 +21,13 @@ public class App {
 
             //* - printing statements
             //? - Image generation
+
+            Text1 : clear image
+            Text2 : xored image
+            Text3 : unxoring Text2 , = Text1
+            Text4 : random image
+            Text5 : shuffled image
+            Text6 : unshuffled image from server
         */
         
         Random rd = new Random(); 
@@ -33,7 +40,7 @@ public class App {
         sendClient sC = new sendClient();
 
         byte [] CText = sC.getCtext();
-
+        
         // hashing password
         MessageDigest md = MessageDigest.getInstance("SHA3-256");
         md.update( s.byteValue() );
@@ -50,7 +57,7 @@ public class App {
         
         
         // xoring CText and h( pc , s )
-        xor1 = CText;
+        xor1 = CText.clone();
         for( int i = 0; i < 32; i++ ) xor1[i] ^= hashed_password[i];
         
 
@@ -79,8 +86,8 @@ public class App {
 
         
         textToString tS = new textToString();    
-        // need to pass xor1S instead of string
-        byte[] xor1_img = tS.convertText( UUID.randomUUID().toString() , hashed_password1 );
+        // ! need to pass xor1S instead of string
+        byte[] xor1_img = tS.convertText( new String( CText ) , hashed_password1 );
         tS.reconvert( hashed_password1 );
 
 

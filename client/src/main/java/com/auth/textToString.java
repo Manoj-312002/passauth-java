@@ -35,7 +35,7 @@ public class textToString {
 
         g2d.drawString(text, 0, fm.getAscent() );
         g2d.dispose();
-        
+
         
         // ? clear image printing
         ImageIO.write(img, "png", new File("Text1.png"));

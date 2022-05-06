@@ -28,6 +28,7 @@ public class embedUnshuffle {
         BufferedImage img = new BufferedImage(301, 145, BufferedImage.TYPE_3BYTE_BGR );
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
 
+        
         // ? for printing the example
         for( int i = 0; i < m; i++ ) bf[i] = unshuffled_img[i];
         ImageIO.write(img, "png", new File("Text6.png"));

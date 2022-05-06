@@ -17,7 +17,7 @@ public class randImage {
         byte r_byte [] = new byte[bf.length];
         rd.nextBytes(r_byte );
 
-        // ? printing random image
+        // ? printing random image 
         for( int i = 0; i < bf.length; i++ ) bf[i] = r_byte[i]; 
         ImageIO.write(img, "png", new File("Text4b.png"));
 
