@@ -7,16 +7,10 @@ import javax.imageio.ImageIO;
 
 
 public class textToString {
-    // private byte [] xor1;
+
     private int width = 243 , height = 15;
     
-    // textToString( byte[] xor1 ){
-    //     this.xor1 = xor1;
-    // }
-    
     public byte[] convertText( String text , byte[] hashed_password1 ) throws Exception{
-        System.out.println(text);
-        System.out.println(width + " " + height);
         
         // create RGB image with width and height 
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR );
@@ -26,7 +20,9 @@ public class textToString {
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
 
+        // * printing string
         System.out.println( "String width : " + fm.stringWidth(text) + " " + fm.getHeight() );
+        System.out.println("\n");
 
         // rendering basics 
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
@@ -40,16 +36,15 @@ public class textToString {
         g2d.drawString(text, 0, fm.getAscent() );
         g2d.dispose();
         
-        // clear image printing
+        
+        // ? clear image printing
         ImageIO.write(img, "png", new File("Text1.png"));
         
         // getting buffer and xoring it
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
-        
-        System.out.println( bf.length  + " " + hashed_password1.length );
         for( int i = 0; i < bf.length; i++ ) bf[i] ^= hashed_password1[ i%32 ];
         
-        // saving for visualisation
+        // ? saving for visualisation
         ImageIO.write(img, "png", new File("Text2.png"));
 
         return bf;
@@ -62,6 +57,8 @@ public class textToString {
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData(); 
 
         for( int i = 0; i < bf.length; i++ ) bf[i] ^= hashed_password1[ i%32 ];
+        
+        // ? reconverted image printing
         ImageIO.write(img , "png", new File("Text3.png"));
 
     }

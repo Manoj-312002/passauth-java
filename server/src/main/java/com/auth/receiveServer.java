@@ -8,12 +8,18 @@ public class receiveServer {
     ServerSocket ss;
     Socket sc;
     BufferedReader socketin;
+    OutputStream socketout;
+    ByteArrayOutputStream baos;
+    DataOutputStream dos;
     DataInputStream din;
 
     receiveServer() throws Exception{
         ss = new ServerSocket(9999);
         sc = ss.accept();
         socketin = new BufferedReader( new InputStreamReader( sc.getInputStream() ) );
+        socketout = sc.getOutputStream();
+        baos = new ByteArrayOutputStream();
+        dos = new DataOutputStream(baos);
         din = new DataInputStream( sc.getInputStream() );
     }
 
@@ -22,12 +28,17 @@ public class receiveServer {
         return din.readInt();
     }
 
+    // starting server communication by sending ctext
+    void sendCText( byte[] CText ) throws Exception{
+        dos.writeInt( CText.length );
+        dos.write( CText );
+        socketout.write( baos.toByteArray() );
+    }
+
     // get the shuffled image
     byte[] receiveImage() throws Exception{
-        // System.out.println( new BigInteger(sh_len).intValue() );
-        Integer shuffled_img_ln = din.readInt();
-        System.out.println( shuffled_img_ln );
         
+        Integer shuffled_img_ln = din.readInt();
         byte[] shuffled_img = new byte[ shuffled_img_ln ];
 
         din.readFully( shuffled_img );
