@@ -29,6 +29,10 @@ public class App {
             Text5 : shuffled image
             Text6 : unshuffled image from server
             Text7 : ctext from server
+
+            random image - 400 x 100 x 3
+            ctext image - 398 x 24 x 3
+            unshuffled image - 164 x 304 x 3
         */
         
         Random rd = new Random(); 
@@ -108,8 +112,7 @@ public class App {
             else unshuffled_img[i] = xor1_img[i-rnd_img.length];
         }
 
-
-
+        System.out.println( rnd_img.length + " " + xor1_img.length );
         //* printing unshuffled image
         System.out.println("Unshuffled image");
         StringBuilder sb3 = new StringBuilder(); for (byte b : unshuffled_img )  sb3.append(String.format("%02x", b));

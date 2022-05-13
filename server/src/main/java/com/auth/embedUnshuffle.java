@@ -25,7 +25,7 @@ public class embedUnshuffle {
             unshuffled_img[idx.get(i)] = shuffled_img[i];
         
         
-        BufferedImage img = new BufferedImage(301, 145, BufferedImage.TYPE_3BYTE_BGR );
+        BufferedImage img = new BufferedImage(164, 304, BufferedImage.TYPE_3BYTE_BGR );
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
 
         
