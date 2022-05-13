@@ -85,7 +85,7 @@ public class App {
         
 
         
-        textToString tS = new textToString();    
+        textToImage tS = new textToImage();    
         // ! need to pass xor1S instead of string
         byte[] xor1_img = tS.convertText( new String( CText ) , hashed_password1 );
         tS.reconvert( hashed_password1 );
