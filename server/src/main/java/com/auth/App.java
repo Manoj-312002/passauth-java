@@ -47,12 +47,13 @@ public class App {
         Integer rnd_img_len = 400*100*3;
         Integer xor1_img_len = unshuffled_img.length - rnd_img_len;
 
+        // extracting the xor1_img from unshuffled image
         byte[] xor1_img = new byte[ xor1_img_len ];
         for( int i = rnd_img_len ; i < unshuffled_img.length ; i++ ){
             xor1_img[i - rnd_img_len] = unshuffled_img[i ];
         } 
 
-        
+        // hashed password 1 generation
         MessageDigest md1 = MessageDigest.getInstance("SHA3-256");
         md1.update( s1.byteValue() );
         byte[] hashed_password1 = md1.digest( Pc.getBytes("utf-8") );

@@ -28,6 +28,7 @@ public class App {
             Text4 : random image
             Text5 : shuffled image
             Text6 : unshuffled image from server
+            Text7 : ctext from server
         */
         
         Random rd = new Random(); 
