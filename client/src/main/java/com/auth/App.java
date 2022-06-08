@@ -68,20 +68,9 @@ public class App {
 
         //* representing xor1 in hex
         System.out.println("xor1 in hex format : ");
-        StringBuilder sb1 = new StringBuilder(); for (byte b : xor1 )  sb1.append(String.format("%02x", b));
-        System.out.println(sb1.toString());
-        System.out.println("\n");
-
-        
-        
-        
-        //* printing the converted string
-        // generating string from xor1
-        String xor1S = new String( xor1 , "ascii" );
-        System.out.println("String representation of xor1 : ");
-        System.out.println( xor1S );
-        System.out.println("\n");
-
+        StringBuilder xor1sB = new StringBuilder(); for (byte b : xor1 )  xor1sB.append(String.format("%02x", b));
+        String xor1S = xor1sB.toString();
+        System.out.println( xor1S + "\n");
         
         // initialising for xoring the image
         MessageDigest md1 = MessageDigest.getInstance("SHA3-256");
@@ -92,7 +81,7 @@ public class App {
         
         textToImage tS = new textToImage();    
         // ! need to pass xor1S instead of string
-        byte[] xor1_img = tS.convertText( new String( CText ) , hashed_password1 );
+        byte[] xor1_img = tS.convertText( new String( xor1S ) , hashed_password1 );
         tS.reconvert( hashed_password1 );
 
 

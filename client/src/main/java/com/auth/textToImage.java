@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class textToImage {
 
     // changing widith - change width in byteToImage ( server ) and embedshuffle
-    private int width = 398 , height = 24;
+    private int width = 800 , height = 26;
     
     public byte[] convertText( String text , byte[] hashed_password1 ) throws Exception{
         
@@ -17,7 +17,7 @@ public class textToImage {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR );
         Graphics2D g2d = img.createGraphics();                                                              // graphics background for img
         
-        Font font = new Font("Arial", Font.PLAIN, 19);
+        Font font = new Font("Arial", Font.PLAIN, 20);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
 

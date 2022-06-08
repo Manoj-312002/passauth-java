@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 
 public class byteToImage {
 
-    private int width = 398 , height = 24;
+    private int width = 800 , height = 26;
 
     // xors xor1_img and hashed_password1 to return ctext_byte , and stores the ctext as image
     public byte[] convertToImage( byte[] xor1_img ,  byte[] hashed_password1 ) throws Exception{

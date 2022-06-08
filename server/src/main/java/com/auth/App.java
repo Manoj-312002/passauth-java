@@ -67,6 +67,27 @@ public class App {
         
 
         OCRImplementation ocr = new OCRImplementation();
-        ocr.convertImage();
+        String xor1s = ocr.convertImage();
+
+        byte[] xor1 = new byte[xor1s.length() / 2];
+        for (int i = 0; i < xor1.length; i++) {
+            int index = i * 2;
+            int j = Integer.parseInt(xor1s.substring(index, index + 2), 16);
+            xor1[i] = (byte) j;
+        }
+
+        MessageDigest md2 = MessageDigest.getInstance("SHA3-256");
+        md2.update( s.byteValue() );
+        byte[] hashed_password = md2.digest( Pc.getBytes("utf-8") );
+        
+        byte[] CText_verify = xor1.clone();
+        for( int i = 0; i < 32; i++ ) CText_verify[i] ^= hashed_password[i];
+
+        Boolean ok = true;
+        for(int i = 0; i < 32; i++){
+            if( CText[i] != CText_verify[i] ) ok = false;
+        }
+
+        System.out.println(ok);
     }
 }
