@@ -17,6 +17,8 @@ public class OCRImplementation {
             String text = tesseract.doOCR(new File("Text7.png"));
   
             // path of your image file
+            //* - Printing the ctext extracted from OCR
+            System.out.println("OCR CTEXT");
             System.out.print(text);
         }
         catch (TesseractException e) {

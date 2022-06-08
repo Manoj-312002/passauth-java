@@ -44,7 +44,7 @@ public class textToImage {
         // getting buffer and xoring it
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
         for( int i = 0; i < bf.length; i++ ) bf[i] ^= hashed_password1[ i%32 ];
-        System.out.println( bf.length );
+
         // ? saving for visualisation
         ImageIO.write(img, "png", new File("Text2.png"));
 

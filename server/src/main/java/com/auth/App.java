@@ -61,6 +61,11 @@ public class App {
         byteToImage bim = new byteToImage();
         byte[] ctext_byte = bim.convertToImage( xor1_img, hashed_password1 );
         
+        //* ctext byte printing
+        System.out.println("CTEXT byte info : ");
+        System.out.println( ctext_byte + "\n");
+        
+
         OCRImplementation ocr = new OCRImplementation();
         ocr.convertImage();
     }

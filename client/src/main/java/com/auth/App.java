@@ -111,8 +111,10 @@ public class App {
             if( i < rnd_img.length ) unshuffled_img[i] = rnd_img[i];
             else unshuffled_img[i] = xor1_img[i-rnd_img.length];
         }
-
-        System.out.println( rnd_img.length + " " + xor1_img.length );
+        
+        //* random image and xor1 image length 
+        System.out.println( "Random Image length : " + rnd_img.length + " xor1 image length : " + xor1_img.length + "\n" );
+        
         //* printing unshuffled image
         System.out.println("Unshuffled image");
         StringBuilder sb3 = new StringBuilder(); for (byte b : unshuffled_img )  sb3.append(String.format("%02x", b));
