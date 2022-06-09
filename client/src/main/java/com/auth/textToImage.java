@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 public class textToImage {
 
     // changing widith - change width in byteToImage ( server ) and embedshuffle
-    private int width = 800 , height = 26;
+    private int width = 911 , height = 29;
     
     public byte[] convertText( String text , byte[] hashed_password1 ) throws Exception{
         
@@ -26,14 +26,14 @@ public class textToImage {
         System.out.println("\n");
 
         // rendering basics 
-        g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-        g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+        // g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+        // g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 
         // setting background colour
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, img.getWidth(), img.getHeight());
         g2d.setColor(Color.BLACK);                                  // text colour
-
+        text = text.toUpperCase();
         g2d.drawString(text, 0, fm.getAscent() );
         g2d.dispose();
 

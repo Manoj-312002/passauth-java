@@ -20,6 +20,7 @@ public class OCRImplementation {
             // path of your image file
             //* - Printing the ctext extracted from OCR
             System.out.println("OCR CTEXT");
+            text = text.toLowerCase();
             System.out.print(text);
         }
         catch (TesseractException e) {
