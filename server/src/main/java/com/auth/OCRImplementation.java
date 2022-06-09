@@ -11,8 +11,9 @@ public class OCRImplementation {
         String text = "";
         try {
             tesseract.setLanguage("eng");
-            tesseract.setDatapath("/mnt/file/Programming/passauth/");
-            tesseract.setTessVariable("user_defined_dpi", "96");
+            tesseract.setDatapath("C:/Program Files/Tesseract-OCR/tessdata");
+            tesseract.setTessVariable("user_defined_dpi", "197");
+            tesseract.setTessVariable("tessedit_char_whitelist", "0123456789ABCDEF");
             // the path of your tess data folder
             // inside the extracted file
             text = tesseract.doOCR(new File("Text7.png"));
@@ -20,6 +21,7 @@ public class OCRImplementation {
             // path of your image file
             //* - Printing the ctext extracted from OCR
             System.out.println("OCR CTEXT");
+            text = text.toLowerCase();
             System.out.print(text);
         }
         catch (TesseractException e) {

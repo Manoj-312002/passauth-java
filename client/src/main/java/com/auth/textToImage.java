@@ -33,7 +33,7 @@ public class textToImage {
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, img.getWidth(), img.getHeight());
         g2d.setColor(Color.BLACK);                                  // text colour
-
+        text = text.toUpperCase();
         g2d.drawString(text, 0, fm.getAscent() );
         g2d.dispose();
 
