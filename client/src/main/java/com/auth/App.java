@@ -101,7 +101,7 @@ public class App {
             else unshuffled_img[i] = xor1_img[i-rnd_img.length];
         }
         
-        //* random image and xor1 image length 
+        //* random image and xcor1 image length 
         System.out.println( "Random Image length : " + rnd_img.length + " xor1 image length : " + xor1_img.length + "\n" );
         
         //* printing unshuffled image

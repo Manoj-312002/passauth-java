@@ -44,7 +44,7 @@ public class App {
         System.out.println(sb.toString().substring( sb.length() - 10 ) ); 
         System.out.println("\n");
 
-        Integer rnd_img_len = 400*100*3;
+        Integer rnd_img_len = 423*98*3;
         Integer xor1_img_len = unshuffled_img.length - rnd_img_len;
 
         // extracting the xor1_img from unshuffled image
