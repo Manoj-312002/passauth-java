@@ -68,7 +68,7 @@ public class App {
 
         OCRImplementation ocr = new OCRImplementation();
         String xor1s = ocr.convertImage();
-
+        xor1s = xor1s.trim();
         byte[] xor1 = new byte[xor1s.length() / 2];
         for (int i = 0; i < xor1.length; i++) {
             int index = i * 2;
@@ -81,10 +81,10 @@ public class App {
         byte[] hashed_password = md2.digest( Pc.getBytes("utf-8") );
         
         byte[] CText_verify = xor1.clone();
-        for( int i = 0; i < 32; i++ ) CText_verify[i] ^= hashed_password[i];
+        for( int i = 0; i < CText_verify.length; i++ ) CText_verify[i] ^= hashed_password[i];
 
         Boolean ok = true;
-        for(int i = 0; i < 32; i++){
+        for(int i = 0; i < CText_verify.length; i++){
             if( CText[i] != CText_verify[i] ) ok = false;
         }
 

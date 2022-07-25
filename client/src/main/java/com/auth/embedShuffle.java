@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 public class embedShuffle {
 
-    private int width = 299 , height = 227;
+    private int width = 2083 , height = 38;
     
     byte[] shuffle( byte[] hashed_password1 , byte[] unshuffled_img ) throws Exception{
         
