@@ -6,7 +6,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class randImage {
-    private int width = 400 , height = 100;
+    private int width = 423 , height = 98;
     
     // generate random image and return
     byte[] genImage() throws Exception{

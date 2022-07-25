@@ -8,7 +8,8 @@ import javax.imageio.ImageIO;
 
 public class textToImage {
 
-    private int width = 243 , height = 15;
+    // changing widith - change width in byteToImage ( server ) and embedshuffle
+    private int width = 911 , height = 29;
     
     public byte[] convertText( String text , byte[] hashed_password1 ) throws Exception{
         
@@ -16,7 +17,7 @@ public class textToImage {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR );
         Graphics2D g2d = img.createGraphics();                                                              // graphics background for img
         
-        Font font = new Font("Arial", Font.PLAIN, 10);
+        Font font = new Font("Arial", Font.PLAIN, 20);
         g2d.setFont(font);
         FontMetrics fm = g2d.getFontMetrics();
 
@@ -25,14 +26,14 @@ public class textToImage {
         System.out.println("\n");
 
         // rendering basics 
-        g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-        g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+        // g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+        // g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 
         // setting background colour
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, img.getWidth(), img.getHeight());
         g2d.setColor(Color.BLACK);                                  // text colour
-
+        text = text.toUpperCase();
         g2d.drawString(text, 0, fm.getAscent() );
         g2d.dispose();
 
@@ -43,7 +44,7 @@ public class textToImage {
         // getting buffer and xoring it
         byte bf[] = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
         for( int i = 0; i < bf.length; i++ ) bf[i] ^= hashed_password1[ i%32 ];
-        
+
         // ? saving for visualisation
         ImageIO.write(img, "png", new File("Text2.png"));
 

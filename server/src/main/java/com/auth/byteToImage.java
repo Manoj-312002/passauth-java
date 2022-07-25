@@ -5,14 +5,14 @@ import javax.imageio.ImageIO;
 
 public class byteToImage {
 
-    private int width = 243 , height = 15;
+    private int width = 911 , height = 29;
 
     // xors xor1_img and hashed_password1 to return ctext_byte , and stores the ctext as image
     public byte[] convertToImage( byte[] xor1_img ,  byte[] hashed_password1 ) throws Exception{
         Integer xor1_img_len =  xor1_img.length;
         byte[] ctext_byte = xor1_img;
 
-        for( int i = 0; i < xor1_img_len; i++  ){
+        for( int i = 0; i < xor1_img_len; i++  ){   
             ctext_byte[i] ^= hashed_password1[ i%32 ];
         }
 
